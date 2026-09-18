@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Roommate Finder - A modern web platform helping college students find suitable roommates based on budget, location, food habits, and lifestyle preferences.">
+  <title>Roommate Finder | Find Your Ideal College Flatmate</title>
+  
+  <!-- Google Fonts for Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================== NAVIGATION BAR ==================== -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <svg viewBox="0 0 24 24">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        <span>Roommate Finder</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="search.html" class="nav-link">Find Roommate</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="profile.html" class="nav-link">My Profile</a>
+        <a href="about.html" class="nav-link">About Project</a>
+      </nav>
+
+      <!-- Auth Actions -->
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Log In</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="badge badge-primary" style="margin-bottom: 1rem;">College Mini Project • Semester 3</span>
+          <h1>Find Your Ideal <span class="hero-highlight">College Roommate</span> With Ease</h1>
+          <p>
+            No more awkward flatmate surprises. Roommate Finder matches college students based on monthly budget, preferred location, food habits, study schedules, and lifestyle routines.
+          </p>
+          <div class="hero-buttons">
+            <a href="search.html" class="btn btn-primary btn-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              Find a Roommate
+            </a>
+            <a href="register.html" class="btn btn-outline btn-lg">
+              Create Profile
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h4>500+</h4>
+              <p>Students Looking</p>
+            </div>
+            <div class="stat-item">
+              <h4>100%</h4>
+              <p>Verified Peers</p>
+            </div>
+            <div class="stat-item">
+              <h4>95%</h4>
+              <p>Compatibility Match</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual / Mock Roommate Card Preview -->
+        <div class="hero-visual">
+          <div class="hero-card-stack">
+            <div class="floating-pill pill-1">
+              ✓ Pure Veg & Non-Smoker
+            </div>
+            <div class="card-top">
+              <div class="avatar" style="background-color: #4f46e520; color: #4f46e5;">AS</div>
+              <div class="card-user-info">
+                <h3>Aarav Sharma</h3>
+                <p>Computer Science • 3rd Sem</p>
+              </div>
+              <div class="card-price-badge">
+                <span class="price">₹6,500</span>
+                <span class="per-month">/ month</span>
+              </div>
+            </div>
+            <div class="card-meta-list">
+              <span class="meta-chip">📍 North Campus</span>
+              <span class="meta-chip">🥗 Pure Veg</span>
+              <span class="meta-chip">🌙 Night Owl</span>
+            </div>
+            <p class="card-description">
+              "Looking for a quiet, like-minded flatmate near college. I study late evenings, maintain high hygiene, and love coding projects."
+            </p>
+            <div class="card-tags">
+              <span class="tag-badge">Quiet & Focused</span>
+              <span class="tag-badge">Non-Smoker</span>
+            </div>
+            <div style="margin-top: 1rem;">
+              <a href="search.html" class="btn btn-primary btn-sm btn-block">Explore All Roommates</a>
+            </div>
+            <div class="floating-pill pill-2">
+              ⚡ 98% Compatibility Score
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HOW IT WORKS ==================== -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>Three simple steps to finding a roommate who matches your vibe and college budget.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Create Your Profile</h3>
+          <p>Register with your college details, monthly budget limit, diet habits (Veg/Non-Veg), and study routine (Early Bird or Night Owl).</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Filter & Compare</h3>
+          <p>Browse student profiles across campus zones. Filter by budget range, dietary preferences, cleanliness, and lifestyle habits.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Connect & Move In</h3>
+          <p>Send roommate requests, review mutual interests, verify compatibility, and secure your shared flat before the semester starts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== KEY FEATURES ==================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Roommate Finder?</h2>
+        <p>Tailored specifically for college students seeking safe, compatible, and affordable living arrangements.</p>
+      </div>
+
+      <div class="grid-4">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>Budget Matching</h3>
+          <p>Easily filter peers whose rent expectations align with yours to avoid stressful money disagreements later.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon">🥗</div>
+          <h3>Diet & Habit Filters</h3>
+          <p>Specify pure vegetarian, vegan, or non-veg preferences so kitchen habits never cause friction.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon">📚</div>
+          <h3>Study Schedule Sync</h3>
+          <p>Match with night owls or early risers so your exam preparation and sleep cycles stay undisturbed.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-icon">🎓</div>
+          <h3>Student Focused</h3>
+          <p>Built exclusively for university peers, ensuring shared campus experiences and academic understanding.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA BANNER ==================== -->
+  <section class="container">
+    <div class="cta-banner">
+      <h2>Ready to Find Your Next Roommate?</h2>
+      <p>Join hundreds of students finding peaceful accommodation near campus today.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="search.html" class="btn btn-secondary btn-lg">Browse Profiles Now</a>
+        <a href="register.html" class="btn btn-outline-primary btn-lg" style="background: #ffffff; color: var(--primary);">Create Free Account</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            Roommate Finder
+          </h3>
+          <p>A smart web application designed to connect college students with compatible flatmates based on lifestyle, budget, and habits.</p>
+          <span class="badge badge-secondary">College 3rd Semester Project</span>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="search.html">Find Roommate</a></li>
+            <li><a href="dashboard.html">Student Dashboard</a></li>
+            <li><a href="profile.html">My Profile</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Sign Up</a></li>
+            <li><a href="about.html">About the Project</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Academic Notice</h4>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            This prototype is developed for educational and demonstration purposes.
+          </p>
+          <span class="badge badge-success">Phase 5: Final Integrated Project</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Roommate Finder Project. Built with HTML, CSS, Vanilla JS, Node.js, Express & MySQL.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

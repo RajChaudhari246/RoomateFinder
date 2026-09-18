@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create your student profile on Roommate Finder.">
+  <title>Student Registration | Roommate Finder</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <span>Roommate Finder</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="search.html" class="nav-link">Find Roommate</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="profile.html" class="nav-link">My Profile</a>
+        <a href="about.html" class="nav-link">About Project</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Log In</a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <!-- Registration Main Content -->
+  <main class="auth-wrapper">
+    <div class="auth-card auth-card-wide">
+      <div class="auth-header">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Phase 5: Student Registration</span>
+        <h2>Create Student Account</h2>
+        <p>Register with your details to save roommate preferences and connect with peers.</p>
+      </div>
+
+      <!-- Server Alert Response Banner -->
+      <div id="registerAlert" class="alert" style="display: none;"></div>
+
+      <form id="registerForm" novalidate>
+        <!-- Student Information -->
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--primary); display: flex; align-items: center; gap: 0.5rem;">
+            <span>1.</span> Personal Information
+          </h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="regFullName" class="form-label">Full Name *</label>
+              <input type="text" id="regFullName" name="full_name" class="form-control" placeholder="e.g. Aarav Sharma" required>
+              <div class="invalid-feedback">Please enter your full name (at least 2 characters).</div>
+            </div>
+
+            <div class="form-group">
+              <label for="regEmail" class="form-label">Email Address *</label>
+              <input type="email" id="regEmail" name="email" class="form-control" placeholder="e.g. aarav@college.edu" required autocomplete="email">
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="regAge" class="form-label">Age *</label>
+              <input type="number" id="regAge" name="age" class="form-control" placeholder="e.g. 20" min="16" max="99" required>
+              <div class="invalid-feedback">Please enter a valid age between 16 and 99.</div>
+            </div>
+
+            <div class="form-group">
+              <label for="regGender" class="form-label">Gender *</label>
+              <select id="regGender" name="gender" class="form-control" required>
+                <option value="">-- Select Gender --</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+                <option value="Prefer not to say">Prefer not to say</option>
+              </select>
+              <div class="invalid-feedback">Please select your gender.</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="regPhone" class="form-label">Phone Number *</label>
+            <input type="tel" id="regPhone" name="phone" class="form-control" placeholder="e.g. 9876543210" required>
+            <div class="invalid-feedback">Please enter a valid phone number.</div>
+          </div>
+        </div>
+
+        <!-- Password Section -->
+        <div style="margin-bottom: 1.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--primary); display: flex; align-items: center; gap: 0.5rem;">
+            <span>2.</span> Security & Password
+          </h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="regPassword" class="form-label">Password *</label>
+              <div style="position: relative;">
+                <input type="password" id="regPassword" name="password" class="form-control" placeholder="At least 6 characters" required autocomplete="new-password">
+                <button type="button" class="toggle-password" data-target="regPassword" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 0.8rem; color: var(--text-muted); cursor: pointer;">Show</button>
+              </div>
+              <div class="invalid-feedback">Password must be at least 6 characters long.</div>
+            </div>
+
+            <div class="form-group">
+              <label for="regConfirmPassword" class="form-label">Confirm Password *</label>
+              <div style="position: relative;">
+                <input type="password" id="regConfirmPassword" name="confirm_password" class="form-control" placeholder="Re-type password" required autocomplete="new-password">
+                <button type="button" class="toggle-password" data-target="regConfirmPassword" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 0.8rem; color: var(--text-muted); cursor: pointer;">Show</button>
+              </div>
+              <div class="invalid-feedback">Passwords do not match.</div>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" id="regSubmitBtn" class="btn btn-primary btn-block btn-lg">
+          Register Account
+        </button>
+      </form>
+
+      <div style="text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--text-muted);">
+        Already have an account? 
+        <a href="login.html" style="color: var(--primary); font-weight: 600;">Log In here</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" style="padding: 2rem 0;">
+    <div class="container" style="text-align: center; font-size: 0.875rem; color: var(--text-muted);">
+      <p>&copy; 2026 Roommate Finder (College 3rd Semester Project). Powered by Node.js, Express & MySQL.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

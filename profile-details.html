@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View public roommate profile and compatibility details.">
+  <title>Roommate Details | Roommate Finder</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <span>Roommate Finder</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="search.html" class="nav-link">Find Roommate</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="profile.html" class="nav-link">My Profile</a>
+        <a href="about.html" class="nav-link">About Project</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="search.html" class="btn btn-outline btn-sm">&larr; Back to Search</a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <!-- Loading Skeleton State -->
+  <div class="container" id="profileLoading" style="margin-top: 2rem;">
+    <div class="skeleton" style="height: 180px; border-radius: var(--radius-lg); margin-bottom: 2rem;"></div>
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+      <div>
+        <div class="skeleton" style="height: 140px; border-radius: var(--radius-lg); margin-bottom: 1.5rem;"></div>
+        <div class="skeleton" style="height: 200px; border-radius: var(--radius-lg);"></div>
+      </div>
+      <div>
+        <div class="skeleton" style="height: 180px; border-radius: var(--radius-lg); margin-bottom: 1.5rem;"></div>
+        <div class="skeleton" style="height: 160px; border-radius: var(--radius-lg);"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error State (e.g. ID not found) -->
+  <div class="container" id="profileError" style="display: none; text-align: center; padding: 4rem 1rem;">
+    <div style="font-size: 3rem; margin-bottom: 0.5rem;">⚠️</div>
+    <h2 style="margin-bottom: 0.5rem;">Roommate Profile Not Found</h2>
+    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+      The requested roommate profile does not exist or preferences have not been set.
+    </p>
+    <a href="search.html" class="btn btn-primary btn-sm">Browse All Roommates</a>
+  </div>
+
+  <!-- Main Profile Container -->
+  <div id="profileMainContainer" style="display: none;">
+    
+    <!-- Profile Header Banner -->
+    <div class="container" style="margin-top: 2rem;">
+      <div class="profile-header-banner">
+        <div class="profile-header-card">
+          <div class="profile-avatar-group">
+            <div class="profile-avatar-large" id="roommateAvatar">
+              RM
+            </div>
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap;">
+                <h2 id="roommateName" style="font-size: 1.65rem;">Roommate Name</h2>
+                <span id="roommateScoreBadge" class="badge badge-success" style="font-size: 0.9rem; padding: 0.35rem 0.85rem;">
+                  ⚡ 85% Match
+                </span>
+              </div>
+              <p id="roommateSubInfo" style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.2rem;">
+                20 years old • Male • North Campus
+              </p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <button type="button" class="btn btn-primary btn-sm" onclick="sendRoommateRequest()">
+              🤝 Send Roommate Request
+            </button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="toggleSaveRoommate(this)">
+              ❤️ Save to Dashboard
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Details Content Grid -->
+    <main class="container" style="margin-bottom: 4rem;">
+      <div class="profile-layout-grid">
+
+        <!-- Left Column: Living Preferences & Bio -->
+        <div>
+          <!-- About Me Section -->
+          <div class="content-box">
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              About Me & Living Style
+            </h3>
+            <p id="roommateBio" style="color: var(--text-muted); font-size: 1rem; line-height: 1.7;">
+              No bio provided.
+            </p>
+          </div>
+
+          <!-- Housing & Rent Preferences -->
+          <div class="content-box">
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              Housing & Rent Expectations
+            </h3>
+            <div class="preferences-grid">
+              <div class="pref-item">
+                <div class="pref-label">Preferred Location</div>
+                <div class="pref-value" id="roommateLocation">North Campus</div>
+              </div>
+              <div class="pref-item">
+                <div class="pref-label">Monthly Budget Range</div>
+                <div class="pref-value" id="roommateBudget" style="color: var(--secondary);">₹5,000 - ₹8,000 / mo</div>
+              </div>
+              <div class="pref-item">
+                <div class="pref-label">Preferred Roommates</div>
+                <div class="pref-value" id="roommateCount">1 Roommate</div>
+              </div>
+              <div class="pref-item">
+                <div class="pref-label">Smoking Policy</div>
+                <div class="pref-value" id="roommateSmoking">Non-Smoker</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Daily Habits & Routines -->
+          <div class="content-box">
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Daily Living Habits
+            </h3>
+            <div class="preferences-grid">
+              <div class="pref-item">
+                <div class="pref-label">Food Preference</div>
+                <div class="pref-value" id="roommateFood">Vegetarian</div>
+              </div>
+              <div class="pref-item">
+                <div class="pref-label">Study Habit</div>
+                <div class="pref-value" id="roommateStudy">Quiet</div>
+              </div>
+              <div class="pref-item">
+                <div class="pref-label">Sleeping Schedule</div>
+                <div class="pref-value" id="roommateSleep">Night Owl</div>
+              </div>
+              <div class="pref-item">
+                <div class="pref-label">Cleanliness Level</div>
+                <div class="pref-value" id="roommateCleanliness">High</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Compatibility Breakdown & Safe Contact -->
+        <div>
+          <!-- Compatibility Score Breakdown -->
+          <div class="content-box">
+            <h4 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Compatibility Score</h4>
+            <div style="font-size: 2.5rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;" id="scorePercentBig">
+              85%
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.25rem;">
+              Calculated using our 100-point compatibility algorithm comparing your budget, campus area, diet habits, study schedules, and lifestyle alignment.
+            </p>
+            <div style="background: var(--bg-main); border-radius: var(--radius-md); padding: 1rem; font-size: 0.825rem; color: var(--text-muted);">
+              <div>✓ Location & Budget Compatibility</div>
+              <div style="margin-top: 0.35rem;">✓ Food & Diet Alignment</div>
+              <div style="margin-top: 0.35rem;">✓ Study Schedule Routine</div>
+            </div>
+          </div>
+
+          <!-- Safe Contact Info -->
+          <div class="content-box">
+            <h4 style="font-size: 1.1rem; margin-bottom: 1rem;">Contact Student</h4>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.9rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span>📧</span>
+                <span id="roommateEmail" style="color: var(--text-main); font-weight: 500;">student@college.edu</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span>📱</span>
+                <span id="roommatePhone" style="color: var(--text-main); font-weight: 500;">+91 9876543210</span>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm btn-block" style="margin-top: 1.25rem;" onclick="sendRoommateRequest()">
+              Send Roommate Request
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="text-align: center; font-size: 0.875rem; color: var(--text-muted); padding: 2rem 0;">
+      <p>&copy; 2026 Roommate Finder. College 3rd Semester Project (Phase 5: Final Integrated Project).</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get("id");
+
+      if (!id) {
+        showError();
+        return;
+      }
+
+      fetchRoommateProfile(id);
+    });
+
+    async function fetchRoommateProfile(id) {
+      try {
+        const res = await fetch(`/api/roommates/${id}`);
+        if (!res.ok) {
+          showError();
+          return;
+        }
+
+        const data = await res.json();
+        if (!data.success || !data.profile) {
+          showError();
+          return;
+        }
+
+        renderDetails(data.profile);
+      } catch (err) {
+        console.error("Fetch profile error:", err);
+        showError();
+      }
+    }
+
+    function renderDetails(p) {
+      document.getElementById("profileLoading").style.display = "none";
+      document.getElementById("profileError").style.display = "none";
+      document.getElementById("profileMainContainer").style.display = "block";
+
+      // Name & Subtitle
+      document.getElementById("roommateName").textContent = p.full_name;
+      document.getElementById("roommateSubInfo").textContent = `${p.age} years old • ${p.gender} • ${p.preferred_location}`;
+
+      // Avatar
+      const initials = p.full_name.trim().split(" ").map(s => s[0]).join("").toUpperCase().substring(0, 2);
+      document.getElementById("roommateAvatar").textContent = initials || "RM";
+
+      // Compatibility Score
+      const score = p.compatibility_score || 65;
+      const scoreBadge = document.getElementById("roommateScoreBadge");
+      scoreBadge.textContent = `⚡ ${score}% Match`;
+      if (score >= 80) {
+        scoreBadge.className = "badge badge-success";
+      } else if (score < 55) {
+        scoreBadge.className = "badge badge-accent";
+      } else {
+        scoreBadge.className = "badge badge-primary";
+      }
+      document.getElementById("scorePercentBig").textContent = `${score}%`;
+
+      // Housing & Living Details
+      document.getElementById("roommateLocation").textContent = p.preferred_location;
+      document.getElementById("roommateBudget").textContent = `₹${Number(p.min_budget).toLocaleString()} - ₹${Number(p.max_budget).toLocaleString()} / month`;
+      document.getElementById("roommateCount").textContent = `${p.preferred_roommates} Roommate(s)`;
+      document.getElementById("roommateSmoking").textContent = p.smoking_preference;
+      document.getElementById("roommateFood").textContent = p.food_preference;
+      document.getElementById("roommateStudy").textContent = p.study_habit;
+      document.getElementById("roommateSleep").textContent = p.sleeping_schedule;
+      document.getElementById("roommateCleanliness").textContent = p.cleanliness_preference;
+      document.getElementById("roommateBio").textContent = p.about_me || "No bio provided.";
+
+      // Contact info
+      document.getElementById("roommateEmail").textContent = p.email;
+      document.getElementById("roommatePhone").textContent = p.phone;
+    }
+
+    function showError() {
+      document.getElementById("profileLoading").style.display = "none";
+      document.getElementById("profileMainContainer").style.display = "none";
+      document.getElementById("profileError").style.display = "block";
+    }
+
+    function sendRoommateRequest() {
+      showToast("Roommate match request sent successfully!", "success");
+    }
+
+    function toggleSaveRoommate(btn) {
+      btn.classList.toggle("bookmarked");
+      showToast("Saved to favorites!", "success");
+    }
+  </script>
+</body>
+</html>

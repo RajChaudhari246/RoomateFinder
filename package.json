@@ -1,0 +1,31 @@
+{
+  "name": "roommate-finder",
+  "version": "1.0.0",
+  "description": "Roommate Finder - College 3rd Semester Project (Phase 5: Final Integrated Application)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test_auth.js && node test_profile.js && node test_search.js && node test_e2e.js",
+    "test:auth": "node test_auth.js",
+    "test:profile": "node test_profile.js",
+    "test:search": "node test_search.js",
+    "test:e2e": "node test_e2e.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "mysql2": "^3.12.0"
+  },
+  "keywords": [
+    "roommate-finder",
+    "college-project",
+    "vanilla-js",
+    "express",
+    "mysql"
+  ],
+  "author": "College Student",
+  "license": "ISC"
+}

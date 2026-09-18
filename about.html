@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About the Roommate Finder College 3rd-Semester Project.">
+  <title>About Project | Roommate Finder</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <span>Roommate Finder</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="search.html" class="nav-link">Find Roommate</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="profile.html" class="nav-link">My Profile</a>
+        <a href="about.html" class="nav-link active">About Project</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Log In</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="search-page-header">
+    <div class="container">
+      <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Academic Mini Project</span>
+      <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">About Roommate Finder</h1>
+      <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 650px;">
+        A web application created for the 3rd-semester mini project to resolve student housing and compatibility challenges.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container" style="margin-bottom: 4rem;">
+    
+    <!-- Problem & Solution Overview -->
+    <div class="profile-layout-grid">
+      
+      <div>
+        <div class="content-box">
+          <h3>
+            🎯 The Problem Statement
+          </h3>
+          <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 1rem;">
+            Every academic semester, thousands of college students relocate away from home. Finding affordable accommodation near universities is difficult, but finding a <strong>compatible, trustworthy roommate</strong> is even harder.
+          </p>
+          <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7;">
+            Mismatches in sleep schedules (night owls vs. early birds), dietary restrictions (vegetarian vs. non-veg), budget limits, and study environments often lead to unnecessary disputes, stress, and broken leases during crucial exam periods.
+          </p>
+        </div>
+
+        <div class="content-box">
+          <h3>
+            💡 Our Solution: Roommate Finder
+          </h3>
+          <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 1rem;">
+            <strong>Roommate Finder</strong> bridges this gap by offering a college-centric matching platform. Instead of relying on random social media posts or expensive brokers, students can search for verified peers and filter candidates across crucial compatibility criteria:
+          </p>
+          <ul style="list-style: disc; margin-left: 1.5rem; color: var(--text-muted); line-height: 1.8;">
+            <li><strong>Budget Transparency:</strong> Match only with students whose monthly rent capacity aligns with yours.</li>
+            <li><strong>Food Habits Alignment:</strong> Filter pure-veg or non-veg preferences for kitchen peace.</li>
+            <li><strong>Study Routines:</strong> Align exam study timings and sleep cycles.</li>
+            <li><strong>Campus Proximity:</strong> Filter accommodations by specific university zones.</li>
+          </ul>
+        </div>
+
+        <!-- Project Roadmap & Architecture -->
+        <div class="content-box">
+          <h3>
+            🛠️ Project Architecture & Final Integration
+          </h3>
+          
+          <div style="margin-bottom: 1.5rem; background: var(--primary-light); padding: 1.25rem; border-radius: var(--radius-md); border-left: 4px solid var(--primary);">
+            <h4 style="color: var(--primary); margin-bottom: 0.35rem;">Full-Stack Architecture (Phase 5 Complete)</h4>
+            <p style="font-size: 0.9rem; color: #3730a3; margin-bottom: 0.5rem;">
+              Built using <strong>HTML5, Vanilla CSS3, Vanilla JavaScript</strong> on the client, backed by <strong>Node.js & Express</strong> REST APIs with secure session management, and a relational <strong>MySQL database</strong> with parameterized queries and bcrypt password encryption.
+            </p>
+            <span class="badge badge-success">✓ Fully Integrated & Tested</span>
+          </div>
+
+          <div style="background: #f8fafc; padding: 1.25rem; border-radius: var(--radius-md); border-left: 4px solid var(--secondary);">
+            <h4 style="color: var(--secondary); margin-bottom: 0.35rem;">Deterministic Matching Algorithm</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+              Rule-based, explainable 100-point compatibility score rubric evaluating Location (20pts), Budget overlap (20pts), Diet (15pts), Study habits (15pts), Sleeping schedule (10pts), Smoking habits (10pts), and Cleanliness (10pts).
+            </p>
+            <span class="badge badge-secondary">Explainable Algorithm</span>
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="content-box">
+          <h3>
+            ❓ Frequently Asked Questions
+          </h3>
+
+          <div style="margin-bottom: 1.25rem;">
+            <h4 style="font-size: 1rem; color: var(--text-main); margin-bottom: 0.25rem;">Is this web app responsive on mobile devices?</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              Yes! The CSS layout utilizes Flexbox, CSS Grid, and media queries to ensure smooth usability across phones, tablets, and desktop displays.
+            </p>
+          </div>
+
+          <div style="margin-bottom: 1.25rem;">
+            <h4 style="font-size: 1rem; color: var(--text-main); margin-bottom: 0.25rem;">Does this project store data in MySQL?</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              Yes. The project uses MySQL with relational tables (`users` and `student_profiles`), foreign keys with ON DELETE CASCADE, unique email indexing, and bcrypt hashed passwords.
+            </p>
+          </div>
+
+          <div>
+            <h4 style="font-size: 1rem; color: var(--text-main); margin-bottom: 0.25rem;">Can a student search without creating an account?</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              Yes, students can freely browse and filter roommate cards on the search page. Creating an account allows listing their own preferences and calculating personalized compatibility scores.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Project Metadata -->
+      <div>
+        <div class="content-box">
+          <h4 style="font-size: 1.1rem; margin-bottom: 1rem;">Project Information</h4>
+          
+          <div style="display: flex; flex-direction: column; gap: 1rem; font-size: 0.9rem;">
+            <div>
+              <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">Project Title</div>
+              <div style="font-weight: 700; color: var(--text-main);">Roommate Finder</div>
+            </div>
+
+            <div>
+              <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">Academic Level</div>
+              <div style="font-weight: 600;">Bachelor of Technology / Computer Science (Semester 3)</div>
+            </div>
+
+            <div>
+              <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">Course / Subject</div>
+              <div style="font-weight: 600;">Web Development Mini Project</div>
+            </div>
+
+            <div>
+              <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">Technologies Used</div>
+              <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.35rem;">
+                <span class="badge badge-primary">HTML5</span>
+                <span class="badge badge-secondary">CSS3</span>
+                <span class="badge badge-accent">Vanilla JS</span>
+                <span class="badge badge-primary">Node.js</span>
+                <span class="badge badge-secondary">Express</span>
+                <span class="badge badge-success">MySQL</span>
+              </div>
+            </div>
+
+            <div>
+              <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">Submission Status</div>
+              <div style="font-weight: 600; color: var(--success);">Phase 5 Final Integration Complete</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-box" style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎓</div>
+          <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">College 3rd Semester Project</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+            Successfully verified end-to-end integration across authentication, profiles, roommate search, and MySQL persistence.
+          </p>
+          <a href="search.html" class="btn btn-primary btn-sm btn-block">Find Roommates Now</a>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            Roommate Finder
+          </h3>
+          <p>Connecting students with compatible flatmates based on budget, food, study routines, and lifestyle.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="search.html">Find Roommate</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="profile.html">My Profile</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Sign Up</a></li>
+            <li><a href="about.html">About Project</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Academic Status</h4>
+          <span class="badge badge-success">Phase 5 Complete</span>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
+            Full-stack student roommate matching application with MySQL relational storage.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Roommate Finder. College 3rd Semester Project (Phase 5: Final Integrated Project).</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

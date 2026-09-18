@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Log in to your Roommate Finder account.">
+  <title>Login | Roommate Finder</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <span>Roommate Finder</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="search.html" class="nav-link">Find Roommate</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="profile.html" class="nav-link">My Profile</a>
+        <a href="about.html" class="nav-link">About Project</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="register.html" class="btn btn-primary btn-sm">Create Account</a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <!-- Login Main Content -->
+  <main class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Student Portal</span>
+        <h2>Welcome Back</h2>
+        <p>Log in with your registered email and password to access your dashboard.</p>
+      </div>
+
+      <!-- Server Alert Response Banner -->
+      <div id="loginAlert" class="alert" style="display: none;"></div>
+
+      <!-- Login Form -->
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="loginEmail" class="form-label">College / Student Email *</label>
+          <input 
+            type="email" 
+            id="loginEmail" 
+            name="email"
+            class="form-control" 
+            placeholder="e.g. name@college.edu" 
+            required
+            autocomplete="email"
+          >
+          <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+            <label for="loginPassword" class="form-label" style="margin-bottom: 0;">Password *</label>
+          </div>
+          <div style="position: relative;">
+            <input 
+              type="password" 
+              id="loginPassword" 
+              name="password"
+              class="form-control" 
+              placeholder="Enter your password" 
+              required
+              autocomplete="current-password"
+            >
+            <button 
+              type="button" 
+              class="toggle-password" 
+              data-target="loginPassword" 
+              style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 0.8rem; color: var(--text-muted); cursor: pointer;"
+            >Show</button>
+          </div>
+          <div class="invalid-feedback">Password is required.</div>
+        </div>
+
+        <button type="submit" id="loginSubmitBtn" class="btn btn-primary btn-block btn-lg" style="margin-top: 1.5rem;">
+          Log In to Account
+        </button>
+      </form>
+
+      <div style="text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--text-muted);">
+        Don't have an account yet? 
+        <a href="register.html" style="color: var(--primary); font-weight: 600;">Register here</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" style="padding: 2rem 0;">
+    <div class="container" style="text-align: center; font-size: 0.875rem; color: var(--text-muted);">
+      <p>&copy; 2026 Roommate Finder (College 3rd Semester Project). Powered by Node.js, Express & MySQL.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find compatible college roommates based on budget, food habits, study routines, and location.">
+  <title>Find Roommates | Roommate Finder</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <span>Roommate Finder</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="search.html" class="nav-link active">Find Roommate</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="profile.html" class="nav-link">My Profile</a>
+        <a href="about.html" class="nav-link">About Project</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="profile.html" class="btn btn-outline btn-sm">My Profile</a>
+        <a href="login.html" class="btn btn-outline-primary btn-sm btn-logout">Log Out</a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="search-page-header">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Phase 5: MySQL Matching & Filters</span>
+          <h1 style="font-size: 2rem; margin-bottom: 0.25rem;">Find Compatible Roommates</h1>
+          <p style="color: var(--text-muted); font-size: 1rem;">
+            Real student profiles ranked by deterministic preference compatibility (100-point rubric).
+          </p>
+        </div>
+        <a href="profile.html" class="btn btn-outline-primary btn-sm">
+          ✏️ Edit My Preferences
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search & Filter Layout -->
+  <main class="container" style="margin-bottom: 4rem;">
+    <div class="search-layout">
+
+      <!-- Left Filter Sidebar -->
+      <aside class="filter-sidebar">
+        <div class="filter-header">
+          <h3 style="font-size: 1.15rem;">Filter Profiles</h3>
+          <button type="button" id="clearFiltersBtn" class="btn btn-sm btn-outline" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;">
+            Clear Filters
+          </button>
+        </div>
+
+        <form id="searchFilterForm">
+          <!-- 1. Location -->
+          <div class="filter-group">
+            <label for="locationFilter">Campus Area / Location</label>
+            <input 
+              type="text" 
+              id="locationFilter" 
+              name="location"
+              placeholder="e.g. North Campus, South Campus..."
+            >
+          </div>
+
+          <!-- 2. Minimum Budget -->
+          <div class="filter-group">
+            <label for="minBudgetFilter">Min Budget (₹ / mo)</label>
+            <input 
+              type="number" 
+              id="minBudgetFilter" 
+              name="min_budget"
+              placeholder="e.g. 4000"
+              min="0"
+            >
+          </div>
+
+          <!-- 3. Maximum Budget -->
+          <div class="filter-group">
+            <label for="maxBudgetFilter">Max Budget (₹ / mo)</label>
+            <input 
+              type="number" 
+              id="maxBudgetFilter" 
+              name="max_budget"
+              placeholder="e.g. 10000"
+              min="0"
+            >
+          </div>
+
+          <!-- 4. Food Preference -->
+          <div class="filter-group">
+            <label for="foodFilter">Food Preference</label>
+            <select id="foodFilter" name="food_preference">
+              <option value="">All Food Preferences</option>
+              <option value="Vegetarian">Vegetarian</option>
+              <option value="Non-Vegetarian">Non-Vegetarian</option>
+              <option value="No Preference">No Preference</option>
+            </select>
+          </div>
+
+          <!-- 5. Gender Filter -->
+          <div class="filter-group">
+            <label for="genderFilter">Gender</label>
+            <select id="genderFilter" name="gender">
+              <option value="">Any Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- 6. Smoking Preference -->
+          <div class="filter-group">
+            <label for="smokingFilter">Smoking Preference</label>
+            <select id="smokingFilter" name="smoking_preference">
+              <option value="">Any Preference</option>
+              <option value="Non-Smoker">Non-Smoker</option>
+              <option value="Smoker">Smoker</option>
+              <option value="No Preference">No Preference</option>
+            </select>
+          </div>
+
+          <!-- 7. Study Habit -->
+          <div class="filter-group">
+            <label for="studyFilter">Study Habit</label>
+            <select id="studyFilter" name="study_habit">
+              <option value="">Any Study Habit</option>
+              <option value="Quiet">Quiet</option>
+              <option value="Moderate">Moderate</option>
+              <option value="Flexible">Flexible</option>
+            </select>
+          </div>
+
+          <!-- 8. Sleeping Schedule -->
+          <div class="filter-group">
+            <label for="sleepFilter">Sleeping Schedule</label>
+            <select id="sleepFilter" name="sleeping_schedule">
+              <option value="">Any Schedule</option>
+              <option value="Early Sleeper">Early Sleeper</option>
+              <option value="Night Owl">Night Owl</option>
+              <option value="Flexible">Flexible</option>
+            </select>
+          </div>
+
+          <!-- Actions -->
+          <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.5rem;">
+            <button type="submit" id="searchBtn" class="btn btn-primary btn-block">
+              🔍 Apply Filters
+            </button>
+            <button type="button" id="clearFiltersBtnAlt" class="btn btn-outline btn-block btn-sm">
+              Reset Filters
+            </button>
+          </div>
+        </form>
+      </aside>
+
+      <!-- Right Results Content -->
+      <section class="search-results-area">
+        <!-- Results Top Bar -->
+        <div class="search-results-top">
+          <div class="search-results-count" id="resultsCount">
+            Searching for roommates...
+          </div>
+          <div style="font-size: 0.85rem; color: var(--text-muted);">
+            <span class="badge badge-primary">Ranked by Compatibility %</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Grid of Roommate Cards (Rendered by js/search.js) -->
+        <div class="roommate-grid" id="roommateCardsGrid">
+          <!-- Cards populated dynamically via js/search.js -->
+        </div>
+
+        <!-- Empty State (Shown if no search match) -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+          <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔍</div>
+          <h3 style="margin-bottom: 0.5rem; font-size: 1.25rem;">No Suitable Roommates Found</h3>
+          <p style="color: var(--text-muted); max-width: 450px; margin: 0 auto 1.5rem; font-size: 0.95rem;">
+            No suitable roommates found. Try changing your filters.
+          </p>
+          <button type="button" class="btn btn-outline-primary btn-sm" onclick="document.getElementById('clearFiltersBtn').click()">
+            Clear All Filters
+          </button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            Roommate Finder
+          </h3>
+          <p>Connecting students with compatible flatmates based on budget, food, study routines, and lifestyle.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="search.html">Find Roommate</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="profile.html">My Profile</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Sign Up</a></li>
+            <li><a href="about.html">About Project</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Matching Rubric</h4>
+          <span class="badge badge-secondary">100-Point Formula</span>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
+            Deterministic preference scoring based on location (20pts), budget (20pts), diet (15pts), study (15pts), sleep (10pts), smoking (10pts), and cleanliness (10pts).
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Roommate Finder. College 3rd Semester Project (Phase 5: Final Integrated Project).</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/search.js"></script>
+</body>
+</html>
